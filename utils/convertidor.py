@@ -45,3 +45,31 @@ class Convertidor:
             character = array[i]
             newString = newString + character
         return newString
+    
+    def es_primo(self, n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    def Decimalizador(self, NumeroInicial):
+        Numeros = 0
+        i = 0
+        x = 0
+        Digitos = len(NumeroInicial) - 1
+        NumeroInicial = NumeroInicial[::-1]
+
+        while i <= Digitos:
+            #print("i: ", i)
+            #print("x: ", x)
+            NumeroNuevo = NumeroInicial[x]
+            #print("Numero Nuevo: ", NumeroNuevo)
+            variable = int(NumeroNuevo) * (2**i)
+            #print("variable: ", variable)
+            Numeros += variable
+            #print("Numeros: ", Numeros)
+            i += 1
+            x += 1
+        return Numeros
